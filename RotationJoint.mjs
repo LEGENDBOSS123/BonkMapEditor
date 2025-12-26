@@ -3,11 +3,12 @@ export class RotationJoint {
     static TYPE = "rv";
 
     constructor() {
-        this.pivot = {
+        this.anchor = {
             x: 0,
             y: 0
         };
-        this.attachedBodyId = null;
+        this.bodyA_Id = -1;
+        this.bodyB_Id = -1;
         this.motorEnabled = false;
         this.maxSpeed = 0;
         this.turnForce = 0;
@@ -22,9 +23,9 @@ export class RotationJoint {
     toJSON() {
         return {
             type: RotationJoint.TYPE,
-            aa: [this.pivot.x, this.pivot.y],
-            ba: 0,
-            bb: this.attachedBodyId,
+            aa: [this.anchor.x, this.anchor.y],
+            ba: this.bodyA_Id,
+            bb: this.bodyB_Id,
             d: {
                 bf: this.breakForce,
                 cc: this.collisionWithAttached,
@@ -41,11 +42,12 @@ export class RotationJoint {
 
     static fromJSON(json) {
         const joint = new RotationJoint();
-        joint.pivot = {
+        joint.anchor = {
             x: json.aa[0],
             y: json.aa[1]
         };
-        joint.attachedBodyId = json.bb;
+        joint.bodyA_Id = json.ba;
+        joint.bodyB_Id = json.bb;
         joint.breakForce = json.d.bf;
         joint.collisionWithAttached = json.d.cc;
         joint.drawLine = json.d.dl;
