@@ -1,5 +1,5 @@
 import { FileImporter } from "./FileImporter.mjs";
-import { Skin } from "./Skin.mjs";
+import { Map } from "./Map.mjs";
 
 const canvas = document.getElementById('myCanvas');
 const ctx = canvas.getContext('2d');
@@ -12,8 +12,8 @@ window.addEventListener('resize', () => {
     canvas.width = window.innerWidth - 50;
 });
 
-let map = Skin.fromJSON(await fetch('mapExample.json').then(res => res.json()));
-
+let map = Map.fromJSON(await fetch('mapExample.json').then(res => res.json()));
+top.map = map; // For debugging in console
 let isDragging = false;
 let lastMouseX, lastMouseY;
 
@@ -58,7 +58,7 @@ let old = {
     scale: scale,
     offsetX: offsetX,
     offsetY: offsetY,
-    skinJSON: JSON.stringify(skin.toJSON()),
+    mapJSON: JSON.stringify(map.toJSON()),
     screenWidth: canvas.width,
     screenHeight: canvas.height,
     firstTime: true
@@ -68,7 +68,7 @@ function hasChanged() {
     return old.scale !== scale ||
         old.offsetX !== offsetX ||
         old.offsetY !== offsetY ||
-        old.skinJSON !== JSON.stringify(skin.toJSON()) ||
+        old.mapJSON !== JSON.stringify(map.toJSON()) ||
         old.screenWidth !== canvas.width ||
         old.screenHeight !== canvas.height ||
         (notifications.length > 0) ||
@@ -79,7 +79,7 @@ function updateOld() {
     old.scale = scale;
     old.offsetX = offsetX;
     old.offsetY = offsetY;
-    old.skinJSON = JSON.stringify(skin.toJSON());
+    old.mapJSON = JSON.stringify(map.toJSON());
     old.screenWidth = canvas.width;
     old.screenHeight = canvas.height;
     old.firstTime = false;
@@ -101,11 +101,11 @@ async function animate() {
     if (hasChanged()) {
         ctx.fillStyle = '#1E3246';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
-        await skin.draw(ctx, canvas.height * 0.4, offsetX, offsetY, scale);
+        await map.draw(ctx, canvas.height * 0.4, offsetX, offsetY, scale);
         ctx.fillStyle = 'white';
         ctx.font = '16px Arial';
-        ctx.fillText(`Drag to move, Scroll to zoom, Press Shift+D to download skin, Press Shift+F to import text file`, 10, 20);
-        ctx.fillText(`Press Shift+T to enter JSON text, Press Shift+S to enter skin string, Press Shift+C to copy skin string`, 10, 40);
+        ctx.fillText(`Drag to move, Scroll to zoom, Press Shift+D to download map, Press Shift+F to import text file`, 10, 20);
+        ctx.fillText(`Press Shift+T to enter JSON text, Press Shift+S to enter map string, Press Shift+C to copy map string`, 10, 40);
         let notifY = 80;
         for (const notif of notifications) {
             const elapsed = Date.now() - notif.time;
@@ -124,17 +124,17 @@ async function animate() {
 
 animate();
 
-function loadSkinFromTxt(txt) {
+function loadMapFromTxt(txt) {
     try {
         const json = JSON.parse(txt);
         try {
-            skin = Skin.fromJSON(json);
+            map = Map.fromJSON(json);
         }
         catch (err) {
             addNotification(err.message, 3000, "red");
             return;
         }
-        addNotification("Skin imported successfully", 3000, "lightgreen");
+        addNotification("Map imported successfully", 3000, "lightgreen");
     }
     catch (err) {
         addNotification("Invalid JSON: " + err.message, 3000, "red");
@@ -148,31 +148,31 @@ document.addEventListener('keydown', async (e) => {
     let txt;
     switch (e.code) {
         case 'KeyD':
-            skin.download(1024, 'skin.png');
+            map.download(1024, 'map.png');
             break;
         case "KeyF":
             txt = await FileImporter.text();
-            loadSkinFromTxt(txt);
+            loadMapFromTxt(txt);
             break;
         case "KeyT":
-            txt = prompt("Enter skin JSON:");
-            loadSkinFromTxt(txt);
+            txt = prompt("Enter map JSON:");
+            loadMapFromTxt(txt);
             break;
         case "KeyS":
-            txt = prompt("Enter skin string:");
+            txt = prompt("Enter map string:");
             try {
-                skin = Skin.fromString(txt);
-                addNotification("Skin imported successfully", 3000, "lightgreen");
+                map = Map.fromString(txt);
+                addNotification("Map imported successfully", 3000, "lightgreen");
             }
             catch (err) {
-                addNotification("Error importing skin: " + err.message, 3000, "red");
+                addNotification("Error importing map: " + err.message, 3000, "red");
             }
             break;
         case "KeyC":
-            const skinString = skin.toString();
-            navigator.clipboard.writeText(skinString);
-            addNotification("Skin string copied to clipboard", 3000, "lightgreen");
-            addNotification(skinString, 3000);
+            const mapString = map.toString();
+            navigator.clipboard.writeText(mapString);
+            addNotification("Map string copied to clipboard", 3000, "lightgreen");
+            addNotification(mapString, 3000);
             break;
     }
 });

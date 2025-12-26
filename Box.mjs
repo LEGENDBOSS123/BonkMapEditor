@@ -1,3 +1,5 @@
+import { Shape } from "./Shape.mjs";
+
 export class Box extends Shape {
     constructor() {
         super();
