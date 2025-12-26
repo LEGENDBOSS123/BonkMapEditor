@@ -11,103 +11,63 @@
         "shapes": [
             {
                 "type": "bx",
-                "w": 201,
-                "h": 5,
+                "w": 320,
+                "h": 20,
                 "c": [
-                    0,
-                    0
+                    32,
+                    -8
                 ],
-                "a": -0.69027970701455,
+                "a": 0.349065850398866,
                 "sk": false
             },
             {
                 "type": "ci",
-                "r": 49,
+                "r": 30,
                 "c": [
-                    0,
-                    0
-                ],
-                "sk": false
-            },
-            {
-                "type": "ci",
-                "r": 32,
-                "c": [
-                    0,
-                    0
-                ],
-                "sk": false
-            },
-            {
-                "type": "ci",
-                "r": 122,
-                "c": [
-                    0,
-                    0
+                    -117,
+                    -83
                 ],
                 "sk": false
             },
             {
                 "type": "bx",
-                "w": 46,
-                "h": 5,
+                "w": 320,
+                "h": 20,
                 "c": [
-                    152,
-                    20
+                    -32,
+                    -8
                 ],
-                "a": 0.23974310887045658,
+                "a": -0.349065850398866,
                 "sk": false
             },
             {
-                "type": "po",
-                "v": [
-                    [
-                        -192,
-                        184
-                    ],
-                    [
-                        25,
-                        218
-                    ],
-                    [
-                        230,
-                        18
-                    ],
-                    [
-                        -100,
-                        5
-                    ],
-                    [
-                        -200,
-                        -2
-                    ],
-                    [
-                        -192,
-                        122
-                    ],
-                    [
-                        -216,
-                        27
-                    ],
-                    [
-                        -233,
-                        64
-                    ],
-                    [
-                        -233,
-                        122
-                    ],
-                    [
-                        -233,
-                        128
-                    ]
+                "type": "ci",
+                "r": 30,
+                "c": [
+                    117,
+                    -83
                 ],
-                "s": 1,
-                "a": 0,
+                "sk": false
+            },
+            {
+                "type": "ci",
+                "r": 50,
+                "c": [
+                    0,
+                    17
+                ],
+                "sk": false
+            },
+            {
+                "type": "bx",
+                "w": 83,
+                "h": 15,
                 "c": [
                     0,
                     0
-                ]
+                ],
+                "a": 0,
+                "sk": false
             }
         ],
         "fixtures": [
@@ -116,9 +76,9 @@
                 "n": "Unnamed Shape",
                 "fr": null,
                 "fp": null,
-                "re": null,
+                "re": -0.7,
                 "de": null,
-                "f": 5209260,
+                "f": 7318973,
                 "d": false,
                 "np": false,
                 "ng": false,
@@ -129,7 +89,7 @@
                 "n": "Unnamed Shape",
                 "fr": null,
                 "fp": null,
-                "re": null,
+                "re": 0.9999999999999999,
                 "de": null,
                 "f": 5209260,
                 "d": false,
@@ -142,9 +102,9 @@
                 "n": "Unnamed Shape",
                 "fr": null,
                 "fp": null,
-                "re": null,
+                "re": -0.7,
                 "de": null,
-                "f": 5209260,
+                "f": 7318973,
                 "d": false,
                 "np": false,
                 "ng": false,
@@ -155,7 +115,7 @@
                 "n": "Unnamed Shape",
                 "fr": null,
                 "fp": null,
-                "re": null,
+                "re": 0.9999999999999999,
                 "de": null,
                 "f": 5209260,
                 "d": false,
@@ -181,11 +141,11 @@
                 "n": "Unnamed Shape",
                 "fr": null,
                 "fp": null,
-                "re": null,
+                "re": 1.4,
                 "de": null,
-                "f": 5209260,
+                "f": 4758939,
                 "d": false,
-                "np": true,
+                "np": false,
                 "ng": false,
                 "ig": false
             }
@@ -193,10 +153,10 @@
         "bodies": [
             {
                 "type": "s",
-                "n": "absolute",
+                "n": "s2",
                 "p": [
-                    -149,
-                    10
+                    -215,
+                    75
                 ],
                 "a": 0,
                 "fric": 0.5,
@@ -219,7 +179,8 @@
                     "ct": 0
                 },
                 "fx": [
-                    0
+                    0,
+                    1
                 ],
                 "f_c": 1,
                 "f_p": true,
@@ -228,7 +189,102 @@
                 "f_3": true,
                 "f_4": true,
                 "fz": {
-                    "on": true,
+                    "on": false,
+                    "x": 0,
+                    "y": 0,
+                    "d": true,
+                    "p": true,
+                    "a": true,
+                    "t": 0,
+                    "cf": 0
+                }
+            },
+            {
+                "type": "s",
+                "n": "s1",
+                "p": [
+                    215,
+                    75
+                ],
+                "a": 0,
+                "fric": 0.5,
+                "fricp": false,
+                "re": 0.8,
+                "de": 0.3,
+                "lv": [
+                    0,
+                    0
+                ],
+                "av": 0,
+                "ld": 0,
+                "ad": 0,
+                "fr": false,
+                "bu": false,
+                "cf": {
+                    "x": 0,
+                    "y": 0,
+                    "w": true,
+                    "ct": 0
+                },
+                "fx": [
+                    2,
+                    3
+                ],
+                "f_c": 1,
+                "f_p": true,
+                "f_1": true,
+                "f_2": true,
+                "f_3": true,
+                "f_4": true,
+                "fz": {
+                    "on": false,
+                    "x": 0,
+                    "y": 0,
+                    "d": true,
+                    "p": true,
+                    "a": true,
+                    "t": 0,
+                    "cf": 0
+                }
+            },
+            {
+                "type": "s",
+                "n": "Cap Zone",
+                "p": [
+                    0,
+                    55
+                ],
+                "a": -3.469446951953614e-17,
+                "fric": 0.6,
+                "fricp": false,
+                "re": 1.3877787807814457e-16,
+                "de": 0.3,
+                "lv": [
+                    0,
+                    0
+                ],
+                "av": 0,
+                "ld": 0,
+                "ad": 0,
+                "fr": false,
+                "bu": false,
+                "cf": {
+                    "x": 0,
+                    "y": 0,
+                    "w": true,
+                    "ct": 0
+                },
+                "fx": [
+                    4
+                ],
+                "f_c": 1,
+                "f_p": true,
+                "f_1": true,
+                "f_2": true,
+                "f_3": true,
+                "f_4": true,
+                "fz": {
+                    "on": false,
                     "x": 0,
                     "y": 0,
                     "d": true,
@@ -240,15 +296,15 @@
             },
             {
                 "type": "d",
-                "n": "moving relative",
+                "n": "swing",
                 "p": [
-                    -22,
-                    45
+                    0,
+                    240
                 ],
                 "a": 0,
                 "fric": 0.5,
                 "fricp": false,
-                "re": 0.8,
+                "re": 1,
                 "de": 0.3,
                 "lv": [
                     0,
@@ -262,149 +318,7 @@
                 "cf": {
                     "x": 0,
                     "y": 0,
-                    "w": true,
-                    "ct": 0
-                },
-                "fx": [
-                    1
-                ],
-                "f_c": 1,
-                "f_p": true,
-                "f_1": true,
-                "f_2": true,
-                "f_3": true,
-                "f_4": true,
-                "fz": {
-                    "on": true,
-                    "x": 0,
-                    "y": 0,
-                    "d": true,
-                    "p": true,
-                    "a": true,
-                    "t": 1,
-                    "cf": 0
-                }
-            },
-            {
-                "type": "d",
-                "n": "Unnamed",
-                "p": [
-                    -26,
-                    -152
-                ],
-                "a": 0,
-                "fric": 0.5,
-                "fricp": false,
-                "re": 0.8,
-                "de": 0.3,
-                "lv": [
-                    0,
-                    0
-                ],
-                "av": 0,
-                "ld": 0,
-                "ad": 0,
-                "fr": false,
-                "bu": false,
-                "cf": {
-                    "x": 0,
-                    "y": 0,
-                    "w": true,
-                    "ct": 0
-                },
-                "fx": [
-                    2
-                ],
-                "f_c": 1,
-                "f_p": true,
-                "f_1": true,
-                "f_2": true,
-                "f_3": true,
-                "f_4": true,
-                "fz": {
-                    "on": true,
-                    "x": 0,
-                    "y": 0,
-                    "d": true,
-                    "p": true,
-                    "a": true,
-                    "t": 2,
-                    "cf": 0
-                }
-            },
-            {
-                "type": "k",
-                "n": "pull",
-                "p": [
-                    66,
-                    72
-                ],
-                "a": 0,
-                "fric": 0.5,
-                "fricp": false,
-                "re": 0.8,
-                "de": 0.3,
-                "lv": [
-                    0,
-                    0
-                ],
-                "av": 0,
-                "ld": 0,
-                "ad": 0,
-                "fr": false,
-                "bu": false,
-                "cf": {
-                    "x": 0,
-                    "y": 0,
-                    "w": true,
-                    "ct": 0
-                },
-                "fx": [
-                    3,
-                    4
-                ],
-                "f_c": 1,
-                "f_p": true,
-                "f_1": true,
-                "f_2": true,
-                "f_3": true,
-                "f_4": true,
-                "fz": {
-                    "on": true,
-                    "x": 0,
-                    "y": 0,
-                    "d": true,
-                    "p": true,
-                    "a": true,
-                    "t": 3,
-                    "cf": 0
-                }
-            },
-            {
-                "type": "s",
-                "n": "Unnamed",
-                "p": [
-                    -13,
-                    -70
-                ],
-                "a": 0,
-                "fric": 0.5,
-                "fricp": false,
-                "re": 0.8,
-                "de": 0.3,
-                "lv": [
-                    0,
-                    0
-                ],
-                "av": 0,
-                "ld": 0,
-                "ad": 0,
-                "fr": false,
-                "bu": false,
-                "cf": {
-                    "x": 0,
-                    "y": 0,
-                    "w": true,
+                    "w": false,
                     "ct": 0
                 },
                 "fx": [
@@ -429,32 +343,186 @@
             }
         ],
         "bro": [
-            4,
             3,
             2,
             1,
             0
         ],
-        "joints": [],
+        "joints": [
+            {
+                "type": "d",
+                "d": {
+                    "fh": 0.1,
+                    "dr": 0,
+                    "cc": false,
+                    "bf": 0,
+                    "dl": true
+                },
+                "aa": [
+                    30,
+                    0
+                ],
+                "ab": [
+                    40,
+                    125
+                ],
+                "ba": 3,
+                "bb": -1
+            },
+            {
+                "type": "d",
+                "d": {
+                    "fh": 0.1,
+                    "dr": 0,
+                    "cc": false,
+                    "bf": 0,
+                    "dl": true
+                },
+                "aa": [
+                    -30,
+                    0
+                ],
+                "ab": [
+                    -40,
+                    125
+                ],
+                "ba": 3,
+                "bb": -1
+            }
+        ],
         "ppm": 12
     },
-    "spawns": [],
-    "capZones": [],
+    "spawns": [
+        {
+            "x": -260,
+            "y": -115,
+            "xv": 0,
+            "yv": 0,
+            "priority": 5,
+            "r": true,
+            "f": true,
+            "b": true,
+            "gr": false,
+            "ye": false,
+            "n": "Spawn"
+        },
+        {
+            "x": 260,
+            "y": -115,
+            "xv": 0,
+            "yv": 0,
+            "priority": 5,
+            "r": true,
+            "f": true,
+            "b": true,
+            "gr": false,
+            "ye": false,
+            "n": "Spawn"
+        },
+        {
+            "x": -200,
+            "y": -161,
+            "xv": 0,
+            "yv": 0,
+            "priority": 5,
+            "r": true,
+            "f": true,
+            "b": true,
+            "gr": false,
+            "ye": false,
+            "n": "Spawn"
+        },
+        {
+            "x": -125,
+            "y": -198,
+            "xv": 0,
+            "yv": 0,
+            "priority": 5,
+            "r": true,
+            "f": true,
+            "b": true,
+            "gr": false,
+            "ye": false,
+            "n": "Spawn"
+        },
+        {
+            "x": 125,
+            "y": -198,
+            "xv": 0,
+            "yv": 0,
+            "priority": 5,
+            "r": true,
+            "f": true,
+            "b": true,
+            "gr": false,
+            "ye": false,
+            "n": "Spawn"
+        },
+        {
+            "x": 200,
+            "y": -161,
+            "xv": 0,
+            "yv": 0,
+            "priority": 5,
+            "r": true,
+            "f": true,
+            "b": true,
+            "gr": false,
+            "ye": false,
+            "n": "Spawn"
+        },
+        {
+            "x": -45,
+            "y": -215,
+            "xv": 0,
+            "yv": 0,
+            "priority": 5,
+            "r": true,
+            "f": true,
+            "b": true,
+            "gr": false,
+            "ye": false,
+            "n": "Spawn"
+        },
+        {
+            "x": 45,
+            "y": -215,
+            "xv": 0,
+            "yv": 0,
+            "priority": 5,
+            "r": true,
+            "f": true,
+            "b": true,
+            "gr": false,
+            "ye": false,
+            "n": "Spawn"
+        }
+    ],
+    "capZones": [
+        {
+            "n": "Cap Zone",
+            "ty": 1,
+            "l": 3,
+            "i": 4
+        }
+    ],
     "m": {
         "a": "LEGENDBOSS123",
-        "n": "Unnamed",
+        "n": "Swing and Snow (edit)",
         "dbv": 2,
-        "dbid": -1,
+        "dbid": 1339385,
         "authid": -1,
         "date": "",
-        "rxid": 0,
-        "rxn": "",
-        "rxa": "",
-        "rxdb": 1,
-        "cr": [],
+        "rxid": 1339385,
+        "rxn": "Swing and Snow",
+        "rxa": "ChillingPepper",
+        "rxdb": 2,
+        "cr": [
+            "ChillingPepper"
+        ],
         "pub": false,
-        "mo": "",
-        "vu": 0,
+        "mo": "b",
+        "vu": 6,
         "vd": 0
     }
 }
