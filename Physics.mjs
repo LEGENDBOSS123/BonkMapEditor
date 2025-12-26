@@ -8,6 +8,10 @@ export class Physics {
         this.partsPerMeter = 15;
     }
 
+    updateBodyRenderOrder(){
+        this.bodyRenderOrder = this.bodies.map(b => b.id);
+    }
+
     toJSON() {
         return {
             shapes: this.shapes.map(s => s.toJSON()),
