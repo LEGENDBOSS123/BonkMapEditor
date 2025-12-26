@@ -1,3 +1,5 @@
+import { MapInfo } from "./MapInfo.mjs";
+import { Physics } from "./Physics.mjs";
 import { Settings } from "./Settings.mjs";
 
 export class Map {
@@ -7,10 +9,10 @@ export class Map {
     constructor() {
         this.version = 15;
         this.settings = new Settings();
-        this.physics = null;
+        this.physics = new Physics();
         this.spawns = [];
         this.capZones = [];
-        this.mapInfo = [];
+        this.mapInfo = new MapInfo();
     }
 
     async exportCanvas(size = 1024) {

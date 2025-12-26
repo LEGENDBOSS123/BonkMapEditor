@@ -1,4 +1,13 @@
 export class MapInfo {
+
+    static MODE = {
+        CLASSIC: "d",
+        ARROWS: "a",
+        DEATH_ARROWS: "ard",
+        GRAPPLE: "sp",
+        VTOL: "v",
+    }
+
     constructor() {
         this.author = "";
         this.name = "";
@@ -11,7 +20,7 @@ export class MapInfo {
         this.remixAuthor = "";
         this.creators = [];
         this.public = false;
-        this.mode = "";
+        this.mode = MapInfo.MODE.CLASSIC;
         this.upvotes = 0;
         this.downvotes = 0;
     }
