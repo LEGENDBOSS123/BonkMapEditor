@@ -1,3 +1,5 @@
+import { Shape } from "./Shape.mjs";
+
 export class Circle extends Shape {
     constructor() {
         super();

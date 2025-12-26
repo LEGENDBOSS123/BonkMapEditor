@@ -1,3 +1,5 @@
+import { Shape } from "./Shape.mjs";
+
 export class Polygon extends Shape {
     constructor() {
         super();
@@ -13,18 +15,18 @@ export class Polygon extends Shape {
 
     toJSON() {
         const json = super.toJSON();
-        json.angle = this.angle;
-        json.scale = this.scale;
-        json.vertices = this.vertices.map(v => ([v.x, v.y]));
+        json.a = this.angle;
+        json.s = this.scale;
+        json.v = this.vertices.map(v => ([v.x, v.y]));
         return json;
     }
 
     static fromJSON(json) {
         const polygon = new Polygon();
         polygon.fromJSON(json);
-        polygon.angle = json.angle;
-        polygon.scale = json.scale;
-        polygon.vertices = (json.vertices || []).map(v => ({ x: v[0], y: v[1] }));
+        polygon.angle = json.a;
+        polygon.scale = json.s;
+        polygon.vertices = (json.v || []).map(v => ({ x: v[0], y: v[1] }));
         return polygon;
     }
 }

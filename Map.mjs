@@ -38,7 +38,7 @@ export class Map {
     }
 
     async draw(ctx, radius = 100, offsetX = 0, offsetY = 0, scale = 1) {
-        const off = Skin.offScreenCanvas;
+        const off = Map.offScreenCanvas;
         off.width = ctx.canvas.width;
         off.height = ctx.canvas.height;
         const offCtx = off.getContext('2d');
@@ -57,7 +57,7 @@ export class Map {
             physics: this.physics.toJSON(),
             spawns: this.spawns.map(s => s.toJSON()),
             capZones: this.capZones.map(cz => cz.toJSON()),
-            mapInfo: this.mapInfo.toJSON()
+            m: this.mapInfo.toJSON()
         }
     }
 
@@ -68,7 +68,7 @@ export class Map {
         map.physics = Physics.fromJSON(json.physics ?? {});
         map.spawns = (json.spawns ?? []).map(s => Spawn.fromJSON(s));
         map.capZones = (json.capZones ?? []).map(cz => CapZone.fromJSON(cz));
-        map.mapInfo = MapInfo.fromJSON(json.mapInfo ?? {});
+        map.mapInfo = MapInfo.fromJSON(json.m ?? {});
         return map;
     }
 }

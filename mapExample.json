@@ -11,14 +11,103 @@
         "shapes": [
             {
                 "type": "bx",
-                "w": 260,
-                "h": 20,
+                "w": 201,
+                "h": 5,
                 "c": [
                     0,
                     0
                 ],
-                "a": 0,
+                "a": -0.69027970701455,
                 "sk": false
+            },
+            {
+                "type": "ci",
+                "r": 49,
+                "c": [
+                    0,
+                    0
+                ],
+                "sk": false
+            },
+            {
+                "type": "ci",
+                "r": 32,
+                "c": [
+                    0,
+                    0
+                ],
+                "sk": false
+            },
+            {
+                "type": "ci",
+                "r": 122,
+                "c": [
+                    0,
+                    0
+                ],
+                "sk": false
+            },
+            {
+                "type": "bx",
+                "w": 46,
+                "h": 5,
+                "c": [
+                    152,
+                    20
+                ],
+                "a": 0.23974310887045658,
+                "sk": false
+            },
+            {
+                "type": "po",
+                "v": [
+                    [
+                        -192,
+                        184
+                    ],
+                    [
+                        25,
+                        218
+                    ],
+                    [
+                        230,
+                        18
+                    ],
+                    [
+                        -100,
+                        5
+                    ],
+                    [
+                        -200,
+                        -2
+                    ],
+                    [
+                        -192,
+                        122
+                    ],
+                    [
+                        -216,
+                        27
+                    ],
+                    [
+                        -233,
+                        64
+                    ],
+                    [
+                        -233,
+                        122
+                    ],
+                    [
+                        -233,
+                        128
+                    ]
+                ],
+                "s": 1,
+                "a": 0,
+                "c": [
+                    0,
+                    0
+                ]
             }
         ],
         "fixtures": [
@@ -29,9 +118,74 @@
                 "fp": null,
                 "re": null,
                 "de": null,
-                "f": 579170,
+                "f": 5209260,
                 "d": false,
                 "np": false,
+                "ng": false,
+                "ig": false
+            },
+            {
+                "sh": 1,
+                "n": "Unnamed Shape",
+                "fr": null,
+                "fp": null,
+                "re": null,
+                "de": null,
+                "f": 5209260,
+                "d": false,
+                "np": false,
+                "ng": false,
+                "ig": false
+            },
+            {
+                "sh": 2,
+                "n": "Unnamed Shape",
+                "fr": null,
+                "fp": null,
+                "re": null,
+                "de": null,
+                "f": 5209260,
+                "d": false,
+                "np": false,
+                "ng": false,
+                "ig": false
+            },
+            {
+                "sh": 3,
+                "n": "Unnamed Shape",
+                "fr": null,
+                "fp": null,
+                "re": null,
+                "de": null,
+                "f": 5209260,
+                "d": false,
+                "np": false,
+                "ng": false,
+                "ig": false
+            },
+            {
+                "sh": 4,
+                "n": "Unnamed Shape",
+                "fr": null,
+                "fp": null,
+                "re": null,
+                "de": null,
+                "f": 5209260,
+                "d": false,
+                "np": false,
+                "ng": false,
+                "ig": false
+            },
+            {
+                "sh": 5,
+                "n": "Unnamed Shape",
+                "fr": null,
+                "fp": null,
+                "re": null,
+                "de": null,
+                "f": 5209260,
+                "d": false,
+                "np": true,
                 "ng": false,
                 "ig": false
             }
@@ -39,15 +193,15 @@
         "bodies": [
             {
                 "type": "s",
-                "n": "1v1 Platform",
+                "n": "absolute",
                 "p": [
-                    0,
-                    0
+                    -149,
+                    10
                 ],
                 "a": 0,
                 "fric": 0.5,
                 "fricp": false,
-                "re": -1,
+                "re": 0.8,
                 "de": 0.3,
                 "lv": [
                     0,
@@ -74,6 +228,195 @@
                 "f_3": true,
                 "f_4": true,
                 "fz": {
+                    "on": true,
+                    "x": 0,
+                    "y": 0,
+                    "d": true,
+                    "p": true,
+                    "a": true,
+                    "t": 0,
+                    "cf": 0
+                }
+            },
+            {
+                "type": "d",
+                "n": "moving relative",
+                "p": [
+                    -22,
+                    45
+                ],
+                "a": 0,
+                "fric": 0.5,
+                "fricp": false,
+                "re": 0.8,
+                "de": 0.3,
+                "lv": [
+                    0,
+                    0
+                ],
+                "av": 0,
+                "ld": 0,
+                "ad": 0,
+                "fr": false,
+                "bu": false,
+                "cf": {
+                    "x": 0,
+                    "y": 0,
+                    "w": true,
+                    "ct": 0
+                },
+                "fx": [
+                    1
+                ],
+                "f_c": 1,
+                "f_p": true,
+                "f_1": true,
+                "f_2": true,
+                "f_3": true,
+                "f_4": true,
+                "fz": {
+                    "on": true,
+                    "x": 0,
+                    "y": 0,
+                    "d": true,
+                    "p": true,
+                    "a": true,
+                    "t": 1,
+                    "cf": 0
+                }
+            },
+            {
+                "type": "d",
+                "n": "Unnamed",
+                "p": [
+                    -26,
+                    -152
+                ],
+                "a": 0,
+                "fric": 0.5,
+                "fricp": false,
+                "re": 0.8,
+                "de": 0.3,
+                "lv": [
+                    0,
+                    0
+                ],
+                "av": 0,
+                "ld": 0,
+                "ad": 0,
+                "fr": false,
+                "bu": false,
+                "cf": {
+                    "x": 0,
+                    "y": 0,
+                    "w": true,
+                    "ct": 0
+                },
+                "fx": [
+                    2
+                ],
+                "f_c": 1,
+                "f_p": true,
+                "f_1": true,
+                "f_2": true,
+                "f_3": true,
+                "f_4": true,
+                "fz": {
+                    "on": true,
+                    "x": 0,
+                    "y": 0,
+                    "d": true,
+                    "p": true,
+                    "a": true,
+                    "t": 2,
+                    "cf": 0
+                }
+            },
+            {
+                "type": "k",
+                "n": "pull",
+                "p": [
+                    66,
+                    72
+                ],
+                "a": 0,
+                "fric": 0.5,
+                "fricp": false,
+                "re": 0.8,
+                "de": 0.3,
+                "lv": [
+                    0,
+                    0
+                ],
+                "av": 0,
+                "ld": 0,
+                "ad": 0,
+                "fr": false,
+                "bu": false,
+                "cf": {
+                    "x": 0,
+                    "y": 0,
+                    "w": true,
+                    "ct": 0
+                },
+                "fx": [
+                    3,
+                    4
+                ],
+                "f_c": 1,
+                "f_p": true,
+                "f_1": true,
+                "f_2": true,
+                "f_3": true,
+                "f_4": true,
+                "fz": {
+                    "on": true,
+                    "x": 0,
+                    "y": 0,
+                    "d": true,
+                    "p": true,
+                    "a": true,
+                    "t": 3,
+                    "cf": 0
+                }
+            },
+            {
+                "type": "s",
+                "n": "Unnamed",
+                "p": [
+                    -13,
+                    -70
+                ],
+                "a": 0,
+                "fric": 0.5,
+                "fricp": false,
+                "re": 0.8,
+                "de": 0.3,
+                "lv": [
+                    0,
+                    0
+                ],
+                "av": 0,
+                "ld": 0,
+                "ad": 0,
+                "fr": false,
+                "bu": false,
+                "cf": {
+                    "x": 0,
+                    "y": 0,
+                    "w": true,
+                    "ct": 0
+                },
+                "fx": [
+                    5
+                ],
+                "f_c": 1,
+                "f_p": true,
+                "f_1": true,
+                "f_2": true,
+                "f_3": true,
+                "f_4": true,
+                "fz": {
                     "on": false,
                     "x": 0,
                     "y": 0,
@@ -86,57 +429,32 @@
             }
         ],
         "bro": [
+            4,
+            3,
+            2,
+            1,
             0
         ],
         "joints": [],
-        "ppm": 15
+        "ppm": 12
     },
-    "spawns": [
-        {
-            "x": -100,
-            "y": -25,
-            "xv": 0,
-            "yv": 0,
-            "priority": 5,
-            "r": true,
-            "f": true,
-            "b": true,
-            "gr": false,
-            "ye": false,
-            "n": "Spawn"
-        },
-        {
-            "x": 100,
-            "y": -25,
-            "xv": 0,
-            "yv": 0,
-            "priority": 5,
-            "r": true,
-            "f": true,
-            "b": true,
-            "gr": false,
-            "ye": false,
-            "n": "Spawn"
-        }
-    ],
+    "spawns": [],
     "capZones": [],
     "m": {
-        "a": "65536Colors1v1",
-        "n": "1v1 #08d662",
+        "a": "LEGENDBOSS123",
+        "n": "Unnamed",
         "dbv": 2,
-        "dbid": 1339256,
+        "dbid": -1,
         "authid": -1,
         "date": "",
         "rxid": 0,
         "rxn": "",
         "rxa": "",
         "rxdb": 1,
-        "cr": [
-            "GudStrat"
-        ],
+        "cr": [],
         "pub": false,
         "mo": "",
-        "vu": 22,
-        "vd": 3
+        "vu": 0,
+        "vd": 0
     }
 }

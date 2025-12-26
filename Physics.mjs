@@ -1,3 +1,11 @@
+import { Box } from "./Box.mjs";
+import { Circle } from "./Circle.mjs";
+import { Polygon } from "./Polygon.mjs";
+import { Shape } from "./Shape.mjs";
+import { Fixture } from "./Fixture.mjs";
+import { Body } from "./Body.mjs";
+import { RotationJoint } from "./RotationJoint.mjs";
+
 export class Physics {
     constructor() {
         this.shapes = [];
@@ -25,12 +33,26 @@ export class Physics {
 
     static fromJSON(json) {
         const physics = new Physics();
-        physics.shapes = json.shapes.map(s => Shape.fromJSON(s));
+        physics.shapes = json.shapes.map(s => {
+            switch (s.type) {
+                case Shape.TYPE.BOX:
+                    return Box.fromJSON(s);
+                case Shape.TYPE.CIRCLE:
+                    return Circle.fromJSON(s);
+                case Shape.TYPE.POLYGON:
+                    return Polygon.fromJSON(s);
+            }
+        });
         physics.fixtures = json.fixtures.map(f => Fixture.fromJSON(f));
         physics.bodies = json.bodies.map(b => Body.fromJSON(b));
-        physics.bodyRenderOrder = [...(json.bro || [])];
-        physics.joints = (json.joints || []).map(j => Joint.fromJSON(j));
-        physics.partsPerMeter = json.ppm || 15;
+        physics.bodyRenderOrder = [...json.bro];
+        physics.joints = json.joints.map(j => {
+            switch (j.type) {
+                case RotationJoint.TYPE:
+                    return RotationJoint.fromJSON(j);
+            }
+        });
+        physics.partsPerMeter = json.ppm;
         return physics;
     }
 }
