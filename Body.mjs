@@ -1,0 +1,162 @@
+export class Body {
+
+    static FORCE_DIRECTION = {
+        ABSOLUTE: 0,
+        RELATIVE: 1
+    }
+
+    static TYPE = {
+        STATIONARY: "s",
+        FREE_MOVING: "d",
+        KINEMATIC: "k"
+    }
+
+    static FORCEZONE_TYPE = {
+        ABSOLUTE: 0,
+        RELATIVE: 1,
+        CENTER_PUSH: 2,
+        CENTER_PULL: 3
+    }
+
+    constructor() {
+        this.type = Body.TYPE.STATIONARY;
+        this.name = "Unnamed";
+        this.position = {
+            x: 0,
+            y: 0
+        };
+        this.angle = 0;
+        this.friction = 0.5;
+        this.frictionPlayers = false;
+        this.bounciness = 0.8;
+        this.density = 0.3;
+
+        this.startSpeed = {
+            x: 0,
+            y: 0
+        };
+        this.startSpin = 0;
+        this.linearDrag = 0;
+        this.spinDrag = 0;
+        this.fixedRotation = false;
+
+        this.antiTunneling = false;
+
+        this.applyForce = {
+            x: 0,
+            y: 0
+        };
+        this.forceDirection = Body.FORCE_DIRECTION.ABSOLUTE;
+        this.applyTorque = 0;
+
+        this.fixtureIndices = [];
+
+        this.collideGroup = 1;
+        this.collideWithPlayers = true;
+        this.collideWithGroup1 = true;
+        this.collideWithGroup2 = true;
+        this.collideWithGroup3 = true;
+        this.collideWithGroup4 = true;
+
+        this.forceZone = {
+            on: false,
+            type: Body.FORCEZONE_TYPE.ABSOLUTE,
+            x: 0,
+            y: 0,
+            forceMagnitude: 0,
+            pushPlayers: true,
+            pushPlatforms: true,
+            pushArrows: true
+        }
+    }
+
+    toJSON(){
+        return {
+            type: this.type,
+            n: this.name,
+            p: [this.position.x, this.position.y],
+            a: this.angle,
+            fric: this.friction,
+            fricp: this.frictionPlayers,
+            re: this.bounciness,
+            de: this.density,
+            lv: [this.startSpeed.x, this.startSpeed.y],
+            av: this.startSpin,
+            ld: this.linearDrag,
+            ad: this.spinDrag,
+            fr: this.fixedRotation,
+            bu: this.antiTunneling,
+            cf: {
+                x: this.applyForce.x,
+                y: this.applyForce.y,
+                w: this.forceDirection,
+                ct: this.applyTorque
+            },
+            fx: [...this.fixtureIndices],
+            f_c: this.collideGroup,
+            f_p: this.collideWithPlayers,
+            f_1: this.collideWithGroup1,
+            f_2: this.collideWithGroup2,
+            f_3: this.collideWithGroup3,
+            f_4: this.collideWithGroup4,
+            fz: {
+                on: this.forceZone.on,
+                x: this.forceZone.x,
+                y: this.forceZone.y,
+                d: this.forceZone.type,
+                p: this.forceZone.pushPlayers,
+                a: this.forceZone.pushPlatforms,
+                t: this.forceZone.pushArrows,
+                cf: this.forceZone.forceMagnitude
+            }
+        }
+    }
+
+    static fromJSON(json){
+        const body = new Body();
+        body.type = json.type;
+        body.name = json.n;
+        body.position = {
+            x: json.p[0],
+            y: json.p[1]
+        };
+        body.angle = json.a;
+        body.friction = json.fric;
+        body.frictionPlayers = json.fricp;
+        body.bounciness = json.re;
+        body.density = json.de;
+        body.startSpeed = {
+            x: json.lv[0],
+            y: json.lv[1]
+        };
+        body.startSpin = json.av;
+        body.linearDrag = json.ld;
+        body.spinDrag = json.ad;
+        body.fixedRotation = json.fr;
+        body.antiTunneling = json.bu;
+        body.applyForce = {
+            x: json.cf.x,
+            y: json.cf.y
+        };
+        body.forceDirection = json.cf.w;
+        body.applyTorque = json.cf.ct;
+        body.fixtureIndices = [...json.fx];
+        body.collideGroup = json.f_c;
+        body.collideWithPlayers = json.f_p;
+        body.collideWithGroup1 = json.f_1;
+        body.collideWithGroup2 = json.f_2;
+        body.collideWithGroup3 = json.f_3;
+        body.collideWithGroup4 = json.f_4;
+        body.forceZone = {
+            on: json.fz.on,
+            type: json.fz.d,
+            x: json.fz.x,
+            y: json.fz.y,
+            forceMagnitude: json.fz.cf,
+            pushPlayers: json.fz.p,
+            pushPlatforms: json.fz.a,
+            pushArrows: json.fz.t
+        };
+        return body;
+    }
+}
