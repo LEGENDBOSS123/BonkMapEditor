@@ -1,6 +1,8 @@
+import { CapZone } from "./CapZone.mjs";
 import { MapInfo } from "./MapInfo.mjs";
 import { Physics } from "./Physics.mjs";
 import { Settings } from "./Settings.mjs";
+import { Spawn } from "./Spawn.mjs";
 
 export class Map {
 

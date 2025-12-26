@@ -1,4 +1,4 @@
-export class Spawns {
+export class Spawn {
     constructor(){
         this.x = 0;
         this.y = 0;
@@ -30,7 +30,7 @@ export class Spawns {
     }
 
     static fromJSON(json) {
-        const spawn = new Spawns();
+        const spawn = new Spawn();
         spawn.x = json.x;
         spawn.y = json.y;
         spawn.xVelocity = json.xv;
