@@ -6,6 +6,7 @@ import { Fixture } from "./Fixture.mjs";
 import { Body } from "./Body.mjs";
 import { RotationJoint } from "./RotationJoint.mjs";
 import { RodJoint } from "./RodJoint.mjs";
+import { FollowsPathJoint } from "./FollowsPathJoint.mjs";
 
 export class Physics {
     constructor() {
@@ -53,6 +54,8 @@ export class Physics {
                     return RotationJoint.fromJSON(j);
                 case RodJoint.TYPE:
                     return RodJoint.fromJSON(j);
+                case FollowsPathJoint.TYPE:
+                    return FollowsPathJoint.fromJSON(j);
             }
         });
         physics.partsPerMeter = json.ppm;
