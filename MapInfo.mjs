@@ -8,13 +8,19 @@ export class MapInfo {
         VTOL: "v",
     }
 
+    static DATABASE_VERSION = {
+        BONK1: 1,
+        BONK2: 2
+    }
+
     constructor() {
         this.author = "";
         this.name = "";
-        this.databaseVersion = 2;
+        this.databaseVersion = MapInfo.DATABASE_VERSION.BONK2;
         this.databaseId = -1;
         this.authorId = -1;
         this.date = "";
+        this.remixDatabaseVersion = MapInfo.DATABASE_VERSION.BONK1;
         this.remixId = 0;
         this.remixName = "";
         this.remixAuthor = "";
@@ -25,7 +31,7 @@ export class MapInfo {
         this.downvotes = 0;
     }
 
-    toJSON(){
+    toJSON() {
         return {
             a: this.author,
             n: this.name,
@@ -35,6 +41,7 @@ export class MapInfo {
             date: this.date,
             rxid: this.remixId,
             rxn: this.remixName,
+            rxdb: this.remixDatabaseVersion,
             rxa: this.remixAuthor,
             cr: this.creators,
             pub: this.public,
@@ -44,7 +51,7 @@ export class MapInfo {
         }
     }
 
-    static fromJSON(json){
+    static fromJSON(json) {
         const info = new MapInfo();
         info.author = json.a;
         info.name = json.n;
@@ -53,6 +60,7 @@ export class MapInfo {
         info.authorId = json.authid;
         info.date = json.date;
         info.remixId = json.rxid;
+        info.remixDatabaseVersion = json.rxdb;
         info.remixName = json.rxn;
         info.remixAuthor = json.rxa;
         info.creators = json.cr;
@@ -62,4 +70,5 @@ export class MapInfo {
         info.downvotes = json.vd;
         return info;
     }
+
 }
