@@ -1,4 +1,5 @@
 import { CapZone } from "./CapZone.mjs";
+import { decodeFromDatabase } from "./decodeFromDatabase.mjs";
 import { MapInfo } from "./MapInfo.mjs";
 import { Physics } from "./Physics.mjs";
 import { Settings } from "./Settings.mjs";
@@ -57,13 +58,13 @@ export class Map {
         ctx.restore();
 
         ctx.translate(cx, cy);
-        ctx.scale(height/500, height/500);
+        ctx.scale(height / 500, height / 500);
 
         this.physics.draw(ctx, this);
-        for(const spawn of this.spawns){
+        for (const spawn of this.spawns) {
             spawn.draw(ctx, this);
         }
-        
+
         ctx.restore();
     }
 
@@ -92,4 +93,9 @@ export class Map {
         map.mapInfo = MapInfo.fromJSON(json.m ?? {});
         return map;
     }
+
+    static fromString(str) {
+        return Map.fromJSON(decodeFromDatabase(str));
+    }
+
 }

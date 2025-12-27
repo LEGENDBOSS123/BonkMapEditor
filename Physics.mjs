@@ -16,7 +16,7 @@ export class Physics {
         this.bodies = [];
         this.bodyRenderOrder = [];
         this.joints = [];
-        this.partsPerMeter = 15;
+        this.partsPerMeter = 12;
     }
 
     updateBodyRenderOrder(){

@@ -1,5 +1,5 @@
 export class Spawn {
-    constructor(){
+    constructor() {
         this.x = 0;
         this.y = 0;
         this.xVelocity = 0;
@@ -18,7 +18,7 @@ export class Spawn {
         ctx.translate(this.x, this.y);
         ctx.fillStyle = '#D32F2F';
         ctx.beginPath();
-        ctx.arc(0, 0, 10, 0, Math.PI * 2);
+        ctx.arc(0, 0, map.physics.partsPerMeter, 0, Math.PI * 2);
         ctx.fill();
         ctx.restore();
     }
