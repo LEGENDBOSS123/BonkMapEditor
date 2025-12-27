@@ -1,3 +1,4 @@
+import { encodeToDatabase } from "./encodeToDatabase.mjs";
 import { CapZone } from "./CapZone.mjs";
 import { decodeFromDatabase } from "./decodeFromDatabase.mjs";
 import { MapInfo } from "./MapInfo.mjs";
@@ -85,9 +86,9 @@ export class Map {
 
     static fromJSON(json) {
         const map = new Map();
-        map.version = json.v ?? 1;
-        map.settings = Settings.fromJSON(json.s ?? {});
-        map.physics = Physics.fromJSON(json.physics ?? {});
+        map.version = json.v ?? 15;
+        map.settings = Settings.fromJSON(json.s);
+        map.physics = Physics.fromJSON(json.physics);
         map.spawns = (json.spawns ?? []).map(s => Spawn.fromJSON(s));
         map.capZones = (json.capZones ?? []).map(cz => CapZone.fromJSON(cz));
         map.mapInfo = MapInfo.fromJSON(json.m ?? {});
@@ -96,6 +97,10 @@ export class Map {
 
     static fromString(str) {
         return Map.fromJSON(decodeFromDatabase(str));
+    }
+
+    toString(){
+        return encodeToDatabase(this.toJSON());
     }
 
 }
