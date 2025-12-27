@@ -18,6 +18,7 @@ export class FollowsPathJoint {
         return {
             type: FollowsPathJoint.TYPE,
             ba: this.bodyA_Id,
+            bb: -1,
             d: {
                 bf: this.breakForce,
                 cc: this.collisionWithAttached,
