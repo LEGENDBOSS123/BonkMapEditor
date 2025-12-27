@@ -23,6 +23,15 @@ export class Physics {
         this.bodyRenderOrder = this.bodies.map(b => b.id);
     }
 
+    draw(ctx, map){
+        for (let i = this.bodyRenderOrder.length - 1; i >= 0; i--) {
+            const body = this.bodies[this.bodyRenderOrder[i]];
+            if(body){
+                body.draw(ctx, map);
+            }
+        }
+    }
+
     toJSON() {
         return {
             shapes: this.shapes.map(s => s.toJSON()),

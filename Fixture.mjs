@@ -1,3 +1,5 @@
+import { Shape } from "./Shape.mjs";
+
 export class Fixture {
     constructor() {
         this.shapeIndex = 0;
@@ -11,6 +13,23 @@ export class Fixture {
         this.noPhysics = false;
         this.noGrapple = false;
         this.innerGrapple = false;
+    }
+
+    draw(ctx, map) {
+        const shape = map.physics.shapes[this.shapeIndex];
+        if (!shape) return;
+
+        switch (shape.type) {
+            case Shape.TYPE.BOX:
+                shape.draw(ctx, map, this);
+                break;
+            case Shape.TYPE.CIRCLE:
+                shape.draw(ctx, map, this);
+                break;
+            case Shape.TYPE.POLYGON:
+                shape.draw(ctx, map, this);
+                break;
+        }
     }
 
     toJSON() {

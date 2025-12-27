@@ -17,20 +17,20 @@ export class Map {
         this.mapInfo = new MapInfo();
     }
 
-    async exportCanvas(size = 1024) {
-        const off = new OffscreenCanvas(size, size);
+    async exportCanvas(height = 500) {
+        const off = new OffscreenCanvas(height * 730 / 500, height);
         const offCtx = off.getContext('2d');
-        await this.draw(offCtx, size / 2, 0, 0, 1);
+        await this.draw(offCtx, height, 0, 0, 1);
         return off;
     }
 
-    async exportBlob(size = 1024) {
-        const canvas = await this.exportCanvas(size);
+    async exportBlob(height = 500) {
+        const canvas = await this.exportCanvas(height);
         return await canvas.convertToBlob({ type: 'image/png' });
     }
 
-    async download(size = 1024, filename = 'map.png') {
-        const blob = await this.exportBlob(size);
+    async download(height = 500, filename = 'map.png') {
+        const blob = await this.exportBlob(height);
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
@@ -39,16 +39,35 @@ export class Map {
         URL.revokeObjectURL(url);
     }
 
-    async draw(ctx, radius = 100, offsetX = 0, offsetY = 0, scale = 1) {
-        const off = Map.offScreenCanvas;
-        off.width = ctx.canvas.width;
-        off.height = ctx.canvas.height;
-        const offCtx = off.getContext('2d');
+    async draw(ctx, height = 500, offsetX = 0, offsetY = 0, scale = 1) {
+        const width = 730 / 500 * height;
         const cx = ctx.canvas.width / 2;
         const cy = ctx.canvas.height / 2;
+        ctx.save();
+        ctx.translate(offsetX, offsetY);
+        ctx.scale(scale, scale);
+        ctx.beginPath();
+        ctx.rect(cx - width / 2, cy - height / 2, width, height);
+        ctx.clip();
+
+        ctx.save();
+        ctx.setTransform(1, 0, 0, 1, 0, 0);
+        ctx.fillStyle = this.constructor.toHexString('34495e');
+        ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+        ctx.restore();
+
+        ctx.translate(cx, cy);
+        ctx.scale(height/500, height/500);
+
+        this.physics.draw(ctx, this);
+        for(const spawn of this.spawns){
+            spawn.draw(ctx, this);
+        }
+        
+        ctx.restore();
     }
 
-    toHexString(color) {
+    static toHexString(color) {
         return `#${color.toString(16).padStart(6, '0')}`;
     }
 

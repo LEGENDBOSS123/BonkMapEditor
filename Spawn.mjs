@@ -13,6 +13,16 @@ export class Spawn {
         this.name = "Spawn";
     }
 
+    draw(ctx, map) {
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.fillStyle = '#D32F2F';
+        ctx.beginPath();
+        ctx.arc(0, 0, 10, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+    }
+
     toJSON() {
         return {
             x: this.x,
