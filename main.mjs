@@ -101,7 +101,7 @@ async function animate() {
     if (hasChanged()) {
         ctx.fillStyle = '#1E3246';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
-        await map.draw(ctx, canvas.height * 0.4, offsetX, offsetY, scale);
+        await map.draw(ctx, canvas.height, offsetX, offsetY, scale);
         ctx.fillStyle = 'white';
         ctx.font = '16px Arial';
         ctx.fillText(`Drag to move, Scroll to zoom, Press Shift+D to download map, Press Shift+F to import text file`, 10, 20);

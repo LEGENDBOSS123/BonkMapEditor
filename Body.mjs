@@ -70,6 +70,19 @@ export class Body {
         }
     }
 
+    draw(ctx, map){
+        ctx.save();
+        ctx.translate(this.position.x, this.position.y);
+        ctx.rotate(this.angle);
+        for(const fi of this.fixtureIndices){
+            const fixture = map.physics.fixtures[fi];
+            if(fixture){
+                fixture.draw(ctx, map);
+            }
+        }
+        ctx.restore();
+    }
+
     toJSON(){
         return {
             type: this.type,

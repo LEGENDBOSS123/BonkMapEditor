@@ -9,6 +9,24 @@ export class Box extends Shape {
         this.angle = 0;
     }
 
+    draw(ctx, map, fixture) {
+        let isCapZone = false;
+        for(const cz of map.capZones){
+            if(cz.shapeIndex == fixture.shapeIndex){
+                isCapZone = true;
+                break;
+            }
+        }
+        ctx.save();
+        ctx.translate(this.position.x, this.position.y);
+        ctx.rotate(this.angle);
+        ctx.fillStyle = `#${fixture.color.toString(16).padStart(6, '0')}`;
+        ctx.strokeStyle = `rgba(255, 255, 255, 0.8)`;
+        ctx.lineWidth = 3;
+        isCapZone ? ctx.strokeRect(-this.width / 2, -this.height / 2, this.width, this.height) : ctx.fillRect(-this.width / 2, -this.height / 2, this.width, this.height);
+        ctx.restore();
+    }
+
     toJSON() {
         const json = super.toJSON();
         json.w = this.width;
